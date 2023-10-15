@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+import '../../controller/main_controller.dart';
+import '../widgets/cart.dart';
+
+class CustomSearch extends StatelessWidget {
+  const CustomSearch(
+      {super.key,
+      required this.controller,
+      required this.pageNumber,
+      required this.searchText});
+
+  final MainController controller;
+  final int pageNumber;
+  final String searchText;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future:
+            controller.getPhoto(title: searchText, page: pageNumber.toString()),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Column(
+              children: [
+                CustomCard(controller: controller, n: 0),
+                CustomCard(controller: controller, n: 2),
+                CustomCard(controller: controller, n: 4),
+                CustomCard(controller: controller, n: 6),
+                CustomCard(controller: controller, n: 8),
+              ],
+            );
+          } else {
+            return const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Center(
+                child: LinearProgressIndicator(),
+              ),
+            );
+          }
+        });
+  }
+}
