@@ -22,7 +22,7 @@ class _BuildingsState extends State<Buildings> {
   bool _isInternetAvailable = false;
 
   @override
-  void initState() {
+  void initState() { initializeInternetConnection();
     _listFuture.add(
       CustomFutureBuildings(controller: widget.controller, pageNumber: 1),
     );
@@ -30,9 +30,9 @@ class _BuildingsState extends State<Buildings> {
   }
 
   Future<void> initializeInternetConnection() async {
-    bool internetAvailable = await checkInternetConnection();
+    bool internetAvailable3 = await checkInternetConnection();
     setState(() {
-      _isInternetAvailable = internetAvailable;
+      _isInternetAvailable = internetAvailable3;
     });
   }
 

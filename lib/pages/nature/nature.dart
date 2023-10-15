@@ -17,19 +17,19 @@ class Nature extends StatefulWidget {
 class _NatureState extends State<Nature> {
   int pageNumber = 2;
 
-  List<Widget> listFuture = [];
+  final List<Widget> _listFuture = [];
 
   bool _isInternetAvailable = false;
 
   @override
-  void initState() {
-    listFuture.add(
+  void initState() {super.initState(); initializeInternetConnection();
+    _listFuture.add(
       CustomFutureNature(
         controller: widget.controller,
         pageNumber: 1,
       ),
     );
-    super.initState();
+
   }
 
   Future<void> initializeInternetConnection() async {
@@ -46,13 +46,13 @@ class _NatureState extends State<Nature> {
         backgroundColor: Colors.white54,
         body: ListView(
           children: [
-            Column(children: listFuture),
+            Column(children: _listFuture),
           ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
-              listFuture.add(
+              _listFuture.add(
                 CustomFutureNature(
                     controller: widget.controller, pageNumber: pageNumber),
               );

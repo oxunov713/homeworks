@@ -29,9 +29,9 @@ class _CarsState extends State<Cars> {
   }
 
   Future<void> initializeInternetConnection() async {
-    bool internetAvailable = await checkInternetConnection();
+    bool internetAvailable1 = await checkInternetConnection();
     setState(() {
-      _isInternetAvailable = internetAvailable;
+      _isInternetAvailable = internetAvailable1;
     });
   }
 
