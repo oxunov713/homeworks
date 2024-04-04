@@ -1,0 +1,12 @@
+{
+  "hello": "Hello",
+  "whatToWatch":"What do you want to watch?"
+  "detail":"Detail"
+  "save":"Save"
+  "search":"Search"
+  "home":"Home"
+  "watchList":"Watch list"
+  "notFound":"We Are Sorry, We Can Not Find The Movie :("
+  "findMovie":"Find your movie by Type title, categories, years, etc"
+  "noMovie":"There is no movie yet!"
+}
